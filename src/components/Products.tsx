@@ -33,7 +33,7 @@ const ProductsGrid = () => {
     >
       {data &&
         data.data.products.map((product: IDummyProduct) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard wishlist={false} key={product.id} product={product} />
         ))}
     </Grid>
   );
