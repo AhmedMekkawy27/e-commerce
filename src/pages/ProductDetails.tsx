@@ -24,12 +24,15 @@ import { addToCart } from "../features/cart/cartSlice";
 import { addToWishlist } from "../features/wishlist/wishlistSlice";
 import { IDummyProduct } from "../interfaces";
 import ProductCard from "../components/ProductCard";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase";
 
 const ProductPage = () => {
   const action = useDispatch();
   const navigate = useNavigate();
   const { productId } = useParams();
   const [qty, setQty] = useState(1);
+  const [user, loading] = useAuthState(auth);
   const [relatedItems, setRelatedItems] = useState<any>();
   const getProductList = async () => {
     if (productId && !isNaN(parseInt(productId))) {
@@ -53,13 +56,13 @@ const ProductPage = () => {
       .then((data) => setRelatedItems(data.products));
   }, []);
   const handleAddCart = () => {
-    if (localStorage.getItem("loggedinUser")) {
+    if (user && !loading) {
       action(addToCart(data));
       navigate("/cart");
     }
   };
   const handleAddWishlist = () => {
-    if (localStorage.getItem("loggedinUser")) {
+    if (user && !loading) {
       if (!isLoading) {
         action(addToWishlist(data));
       }

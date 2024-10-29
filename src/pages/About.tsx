@@ -64,7 +64,7 @@ const About = () => {
             </Text>
           </VStack>
           <Image
-            src="../../public/about-top-image.jpg"
+            src="/about-top-image.jpg"
             w={"60%"}
             display={{ base: "none", lg: "block" }}
             pos={"relative"}

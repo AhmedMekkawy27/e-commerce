@@ -49,7 +49,7 @@ const FadeCarousel = () => {
         <Image
           w={{ "2xl": "600px", xl: "400px", lg: "300px" }}
           h={"auto"}
-          src={"../../public/iPhone.jpg"}
+          src={"/iPhone.jpg"}
         />
       </Flex>
       <Flex gap={3} justifyContent={"center"}>

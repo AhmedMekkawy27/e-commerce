@@ -59,7 +59,7 @@ const Register = () => {
       h={"calc(100vh - 81px)"}
     >
       <Image
-        src="../../public/a1c7dc5b68a42239311e510f54d8cd59.jpg"
+        src="/a1c7dc5b68a42239311e510f54d8cd59.jpg"
         w={"55%"}
         display={{ base: "none", lg: "block" }}
       />

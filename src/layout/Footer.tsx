@@ -138,19 +138,19 @@ export default function Footer() {
             <ListHeader>Download App</ListHeader>
             <Text color={"#fafafa"}>Save $3 with App New User Only</Text>
             <Stack direction={"row"} gap={3} alignItems={"center"}>
-              <Image src="../../public/qr.jpg" />
+              <Image src="/qr.jpg" />
               <Stack direction={"column"}>
                 <Image
                   w={"150px"}
                   border={"1px solid white"}
                   rounded={"md"}
-                  src="../../public/google-play.png"
+                  src="/google-play.png"
                 />
                 <Image
                   w={"150px"}
                   border={"1px solid white"}
                   rounded={"md"}
-                  src="../../public/app-store.png"
+                  src="/app-store.png"
                 />
               </Stack>
             </Stack>
