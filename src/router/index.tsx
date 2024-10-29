@@ -18,6 +18,7 @@ import ProtectedRoute from "../components/auth/ProtectedRoute";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import PageNotFound from "../pages/PageNotFound";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -64,6 +65,14 @@ const router = createBrowserRouter(
           element={
             <ProtectedRoute redirectPath="/login">
               <Wishlist />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="profile"
+          element={
+            <ProtectedRoute redirectPath="/login">
+              <Profile />
             </ProtectedRoute>
           }
         />

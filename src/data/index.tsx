@@ -70,17 +70,17 @@ export const sales = [
 
 export const aboutCards = [
   {
-    image: "../../public/card1.png",
+    image: "/card1.png",
     title: "Tom Cruise",
     job: "Founder & Chairman",
   },
   {
-    image: "../../public/card2.png",
+    image: "/card2.png",
     title: "Emma Watson",
     job: "Managing Director",
   },
   {
-    image: "../../public/card3.png",
+    image: "/card3.png",
     title: "Will Smith",
     job: "Product Designer",
   },

@@ -8,18 +8,20 @@ interface IProps {
 }
 
 const ProtectedRoute = ({ login, redirectPath, children }: IProps) => {
-  const [user] = useAuthState(auth);
-  if (!login) {
-    if (!user) {
-      return <Navigate to={redirectPath} />;
-    }
-    return children;
-  }
-  if (login) {
-    if (!user) {
+  const [user, loading] = useAuthState(auth);
+  if (!loading) {
+    if (!login) {
+      if (!user) {
+        return <Navigate to={redirectPath} />;
+      }
       return children;
     }
-    return <Navigate to={redirectPath} />;
+    if (login) {
+      if (!user) {
+        return children;
+      }
+      return <Navigate to={redirectPath} />;
+    }
   }
 };
 

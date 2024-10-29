@@ -163,12 +163,14 @@ const Navbar = () => {
               )}
               <MenuList
                 alignItems={"center"}
-                bg={"rgba(0,0,0,0.05)"}
+                bg={"rgba(0,0,0,0.5)"}
                 backdropFilter="blur(50px)"
                 border={"0"}
                 p={"0"}
               >
                 <MenuItem
+                  as={Link}
+                  to={"/profile"}
                   bg={"rgba(0,0,0,0.05)"}
                   _hover={{ bg: "gray.700" }}
                   color={"#fafafa"}

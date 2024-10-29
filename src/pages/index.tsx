@@ -1,8 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Box, Button, Container, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import ProductCarousel from "../components/ProductCarousel";
 import SimpleSidebar from "../layout/Sidebar";
-import { breakpoints, categoryData } from "../data";
+import { aboutFeatures, breakpoints, categoryData } from "../data";
 import Fade from "../components/FadeCarousel";
 import CategoryCard from "../components/CategoryCard";
 import { useQuery } from "react-query";
@@ -11,6 +20,8 @@ import ProductCard from "../components/ProductCard";
 import { IDummyProduct } from "../interfaces";
 import ItemsGrid from "../layout/home/ItemsGrid";
 import { Link } from "react-router-dom";
+import PromoSection from "../components/Promo";
+import AboutFeatures from "../components/AboutFeatures";
 const Home = () => {
   const getProductList = async () => {
     const data: any = await axios.get(
@@ -40,7 +51,7 @@ const Home = () => {
             gap={{ base: "20px", md: "40px" }}
             mb={{ base: "100px", md: "20px" }}
           >
-            <Text fontSize={{ md: "5xl", base: "4xl" }} fontWeight={"semibold"}>
+            <Text fontSize={{ md: "4xl", base: "3xl" }} fontWeight={"semibold"}>
               Flash Sales
             </Text>
 
@@ -133,7 +144,7 @@ const Home = () => {
           gap={{ base: "20px", md: "40px" }}
           mb={{ base: "100px", md: "20px" }}
         >
-          <Text fontSize={{ md: "5xl", base: "4xl" }} fontWeight={"semibold"}>
+          <Text fontSize={{ md: "4xl", base: "3xl" }} fontWeight={"semibold"}>
             Browse By Category
           </Text>
         </Flex>
@@ -165,7 +176,7 @@ const Home = () => {
           mb={{ base: "100px", md: "20px" }}
           justifyContent={"space-between"}
         >
-          <Text fontSize={{ md: "5xl", base: "4xl" }} fontWeight={"semibold"}>
+          <Text fontSize={{ md: "4xl", base: "3xl" }} fontWeight={"semibold"}>
             Best Selling Products
           </Text>
           <Button
@@ -192,6 +203,8 @@ const Home = () => {
           )}
         </Box>
 
+        <PromoSection />
+
         <Box my={"60px"}>
           <Flex gap={"10px"} alignItems={"center"}>
             <Box w={"20px"} h={"40px"} background={"#db4444"} rounded={"md"} />
@@ -206,7 +219,7 @@ const Home = () => {
             mb={{ base: "100px", md: "20px" }}
             justifyContent={"space-between"}
           >
-            <Text fontSize={{ md: "5xl", base: "4xl" }} fontWeight={"semibold"}>
+            <Text fontSize={{ md: "4xl", base: "3xl" }} fontWeight={"semibold"}>
               Explore Our Products
             </Text>
           </Flex>
@@ -228,6 +241,88 @@ const Home = () => {
             </Button>
           </Flex>
         </Box>
+
+        <Grid
+          templateColumns={{
+            xl: "300px 300px 300px 300px",
+            lg: "200px 200px 200px 200px",
+            md: "1fr 1fr",
+            base: "1fr",
+          }}
+          templateRows={"300px 300px"}
+          py={"80px"}
+          gap={8}
+          justifyContent={"center"}
+          overflow={"hidden"}
+        >
+          <GridItem
+            gridColumn={{ lg: "1 / 3" }}
+            gridRow={{ lg: "1 / 3" }}
+            overflow={"hidden"}
+          >
+            <Image
+              src="/sony.png"
+              bg={"black"}
+              boxSize={"full"}
+              rounded={"lg"}
+            />
+          </GridItem>
+          <GridItem
+            gridColumn={{ lg: "3 / 5" }}
+            gridRow={{ lg: "1 / 2" }}
+            overflow={"hidden"}
+          >
+            <Image
+              src="/woman.jpg"
+              bg={"black"}
+              h={"full"}
+              w={"full"}
+              rounded={"lg"}
+            />
+          </GridItem>
+          <GridItem gridColumn={{ lg: "3 / 4" }} gridRow={{ lg: "2 / 3" }}>
+            <Image
+              src="/speakers.png"
+              bg={"black"}
+              boxSize={"full"}
+              rounded={"lg"}
+            />
+          </GridItem>
+          <GridItem
+            gridColumn={{ lg: "4 / 5" }}
+            gridRow={{ lg: "2 / 3" }}
+            overflow={"hidden"}
+          >
+            <Image
+              src="/perfume.png"
+              bg={"black"}
+              boxSize={"full"}
+              rounded={"lg"}
+            />
+          </GridItem>
+        </Grid>
+
+        <Grid
+          templateColumns={"repeat(auto-fill, minmax(380px, 1fr))"}
+          gap={6}
+          mx={"auto"}
+          mt={"70px"}
+          mb="150px"
+        >
+          {aboutFeatures.map((feat) => (
+            <GridItem
+              key={feat.text}
+              justifyContent={"center"}
+              display={"flex"}
+            >
+              <AboutFeatures
+                icon={feat.icon}
+                text={feat.text}
+                text2={feat.text2}
+              />
+            </GridItem>
+          ))}
+        </Grid>
       </Container>
     </Box>
   );

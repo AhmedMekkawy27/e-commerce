@@ -72,7 +72,7 @@ const ProductPage = () => {
     <Container p="5" maxW={breakpoints} mx="auto">
       {/* Breadcrumb Navigation */}
       <Text fontSize="sm" color="gray.500">
-        Account / Gaming / Havic HV G-92 Gamepad
+        Account / {data.category} / {data.title}
       </Text>
 
       <Grid
