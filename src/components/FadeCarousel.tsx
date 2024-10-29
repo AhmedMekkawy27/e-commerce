@@ -23,7 +23,7 @@ const FadeCarousel = () => {
           alignItems={{ lg: "start", base: "center" }}
         >
           <Flex gap={5} alignItems={"center"}>
-            <Image w={"50px"} src={"../../public/apple.svg"} />
+            <Image w={"50px"} src={"/apple.svg"} />
             <Text fontSize={"lg"} fontWeight={"medium"} color={"white"}>
               iPhone 14 Series
             </Text>

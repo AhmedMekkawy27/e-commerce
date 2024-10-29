@@ -10,7 +10,7 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "../features/wishlist/wishlistSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 const ProductCard = ({
@@ -22,6 +22,7 @@ const ProductCard = ({
 }) => {
   const action = useDispatch();
   const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
   const cartProduct: cartProduct = {
     id: product.id,
     title: product.title,
@@ -41,13 +42,21 @@ const ProductCard = ({
   };
 
   const handleAddCart = () => {
-    if (user && !loading) {
-      action(addToCart(cartProduct));
+    if (!loading) {
+      if (user) {
+        action(addToCart(cartProduct));
+      } else {
+        navigate("/login");
+      }
     }
   };
   const handleAddWishlist = () => {
-    if (user && !loading) {
-      action(addToWishlist(wishlistProduct));
+    if (!loading) {
+      if (user) {
+        action(addToWishlist(wishlistProduct));
+      } else {
+        navigate("/login");
+      }
     }
   };
 
