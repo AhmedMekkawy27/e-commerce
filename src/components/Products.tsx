@@ -11,7 +11,7 @@ const ProductsGrid = () => {
     return data;
   };
 
-  const { isLoading, data } = useQuery("products", () => getProductList());
+  const { isLoading, data } = useQuery("allProducts", () => getProductList());
 
   if (isLoading)
     return (
@@ -32,7 +32,7 @@ const ProductsGrid = () => {
       gap={6}
     >
       {data &&
-        data.data.products.map((product: IDummyProduct) => (
+        data?.data?.products?.map((product: IDummyProduct) => (
           <ProductCard wishlist={false} key={product.id} product={product} />
         ))}
     </Grid>
